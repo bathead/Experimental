@@ -29,13 +29,31 @@ end
 live_loop :dsaw_loop do
   ##| stop
   sync :drums
+  use_synth :dsaw
   2.times do
-    use_synth :dsaw
+    
     with_fx :reverb do
       play (chord :c, :minor), pitch: 4, amp: 0.7
       sleep 0.25
       play(chord :c1, :minor), pitch: 4, amp: 0.7
       sleep 0.25
+    end
+  end
+  
+end
+
+live_loop :dsaw_loop_oc1 do
+  sync :dsaw_loop
+  sleep 2
+  use_synth :dsaw
+  2.times do
+    with_octave 1 do
+      with_fx :reverb do
+        play (chord :c, :minor), pitch: 4, amp: 0.7
+        sleep 0.25
+        play(chord :c1, :minor), pitch: 4, amp: 0.7
+        sleep 0.25
+      end
     end
   end
 end
