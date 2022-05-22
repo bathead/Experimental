@@ -32,9 +32,9 @@ live_loop :dsaw_loop do
   2.times do
     use_synth :dsaw
     with_fx :reverb do
-      play (chord :c, :minor)
+      play (chord :c, :minor), pitch: 4, amp: 0.7
       sleep 0.25
-      play(chord :c1, :minor)
+      play(chord :c1, :minor), pitch: 4, amp: 0.7
       sleep 0.25
     end
   end
