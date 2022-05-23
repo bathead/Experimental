@@ -1,7 +1,6 @@
 use_bpm 127
 
-
-
+#Drums
 live_loop :drums do
   use_synth :choice
   sample :bd_tek
@@ -17,25 +16,17 @@ live_loop :snares do
   sleep 1
 end
 
-live_loop :saw_beat do
-  sleep 8
-  16.times do
-    use_synth :saw
-    sample :elec_flip, amp: 2
-    sleep 0.25
-  end
-end
 
+##| Dsaw Loops
 live_loop :dsaw_loop do
-  ##| stop
-  sync :drums
+  sleep 20
   use_synth :dsaw
   2.times do
     
     with_fx :reverb do
-      play (chord :c, :minor), pitch: 4, amp: 0.7
+      play (chord :c, :minor), pitch: 4, amp: 0.6
       sleep 0.25
-      play(chord :c1, :minor), pitch: 4, amp: 0.7
+      play(chord :c1, :minor), pitch: 4, amp: 0.6
       sleep 0.25
     end
   end
@@ -49,16 +40,16 @@ live_loop :dsaw_loop_oc1 do
   2.times do
     with_octave 1 do
       with_fx :reverb do
-        play (chord :c, :minor), pitch: 4, amp: 0.7
+        play (chord :c, :minor), pitch: 4, amp: 0.6
         sleep 0.25
-        play(chord :c1, :minor), pitch: 4, amp: 0.7
+        play(chord :c1, :minor), pitch: 4, amp: 0.6
         sleep 0.25
       end
     end
   end
 end
 
-
+# Pure Synths
 live_loop :synth_melody do
   sleep 24
   16.times do
